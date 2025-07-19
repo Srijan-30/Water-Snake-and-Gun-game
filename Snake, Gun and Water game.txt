@@ -1,0 +1,26 @@
+# Snake, Water, Gun Game in Python
+# The snake drinks the water, the gun shoots the snake, and gun has no effect on water.
+import random
+def computer():
+  return random.choice(["snake", "water", "gun"])
+
+def determiner(you, comp):
+  if comp == you:
+    return "Draw"
+
+  elif (you =="snake" and comp == "water") or \
+       (you =="gun" and comp == "water") or \
+       (you == "gun" and comp == "snake") :
+      return "You win"
+  else:
+      return "Computer win"
+
+print("Your turn\n Choose one of them: snake, water, gun")
+you = input("Your turn: ").lower()
+comp = computer()
+
+print(f"Computer choose {comp}")
+print(f"You choose {you}")
+result = determiner(you, comp) 
+# check function call
+print(result)
